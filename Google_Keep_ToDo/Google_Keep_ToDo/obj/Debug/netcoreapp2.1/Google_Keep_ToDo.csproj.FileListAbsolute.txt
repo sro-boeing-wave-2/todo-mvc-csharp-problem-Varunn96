@@ -1,0 +1,14 @@
+D:\workspace\todo-mvc-csharp-problem-Varunn96\Google_Keep_ToDo\Google_Keep_ToDo\bin\Debug\netcoreapp2.1\Google_Keep_ToDo.deps.json
+D:\workspace\todo-mvc-csharp-problem-Varunn96\Google_Keep_ToDo\Google_Keep_ToDo\bin\Debug\netcoreapp2.1\Google_Keep_ToDo.runtimeconfig.json
+D:\workspace\todo-mvc-csharp-problem-Varunn96\Google_Keep_ToDo\Google_Keep_ToDo\bin\Debug\netcoreapp2.1\Google_Keep_ToDo.runtimeconfig.dev.json
+D:\workspace\todo-mvc-csharp-problem-Varunn96\Google_Keep_ToDo\Google_Keep_ToDo\bin\Debug\netcoreapp2.1\Google_Keep_ToDo.dll
+D:\workspace\todo-mvc-csharp-problem-Varunn96\Google_Keep_ToDo\Google_Keep_ToDo\obj\Debug\netcoreapp2.1\Google_Keep_ToDo.csprojAssemblyReference.cache
+D:\workspace\todo-mvc-csharp-problem-Varunn96\Google_Keep_ToDo\Google_Keep_ToDo\obj\Debug\netcoreapp2.1\Google_Keep_ToDo.csproj.CoreCompileInputs.cache
+D:\workspace\todo-mvc-csharp-problem-Varunn96\Google_Keep_ToDo\Google_Keep_ToDo\obj\Debug\netcoreapp2.1\Google_Keep_ToDo.RazorAssemblyInfo.cache
+D:\workspace\todo-mvc-csharp-problem-Varunn96\Google_Keep_ToDo\Google_Keep_ToDo\obj\Debug\netcoreapp2.1\Google_Keep_ToDo.RazorAssemblyInfo.cs
+D:\workspace\todo-mvc-csharp-problem-Varunn96\Google_Keep_ToDo\Google_Keep_ToDo\obj\Debug\netcoreapp2.1\Google_Keep_ToDo.AssemblyInfoInputs.cache
+D:\workspace\todo-mvc-csharp-problem-Varunn96\Google_Keep_ToDo\Google_Keep_ToDo\obj\Debug\netcoreapp2.1\Google_Keep_ToDo.AssemblyInfo.cs
+D:\workspace\todo-mvc-csharp-problem-Varunn96\Google_Keep_ToDo\Google_Keep_ToDo\obj\Debug\netcoreapp2.1\Google_Keep_ToDo.RazorTargetAssemblyInfo.cache
+D:\workspace\todo-mvc-csharp-problem-Varunn96\Google_Keep_ToDo\Google_Keep_ToDo\bin\Debug\netcoreapp2.1\Google_Keep_ToDo.pdb
+D:\workspace\todo-mvc-csharp-problem-Varunn96\Google_Keep_ToDo\Google_Keep_ToDo\obj\Debug\netcoreapp2.1\Google_Keep_ToDo.dll
+D:\workspace\todo-mvc-csharp-problem-Varunn96\Google_Keep_ToDo\Google_Keep_ToDo\obj\Debug\netcoreapp2.1\Google_Keep_ToDo.pdb
