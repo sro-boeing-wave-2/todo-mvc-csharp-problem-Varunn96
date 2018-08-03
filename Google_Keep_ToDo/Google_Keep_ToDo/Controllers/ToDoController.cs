@@ -13,7 +13,7 @@ namespace Google_Keep_ToDo.Controllers
     [ApiController]
     public class ToDoController : ControllerBase
     {
-        private readonly Google_Keep_ToDoContext _context;
+        public static Google_Keep_ToDoContext _context;
 
         public ToDoController(Google_Keep_ToDoContext context)
         {
