@@ -91,7 +91,8 @@ namespace Google_Keep_ToDo.Controllers
                 return BadRequest();
             }
 
-            _context.Entry(myNote).State = EntityState.Modified;
+            _context.MyNote.Update(myNote);
+            //_context.Entry(myNote).State = EntityState.Modified;
 
             try
             {
