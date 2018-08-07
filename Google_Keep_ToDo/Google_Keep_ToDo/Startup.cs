@@ -34,7 +34,7 @@ namespace Google_Keep_ToDo
             if(Environment.IsEnvironment("Testing"))
             {
                 services.AddDbContext<Google_Keep_ToDoContext>(options =>
-                    options.UseInMemoryDatabase("TestDB"));
+                    options.UseInMemoryDatabase("TestingDB"));
             }
             else
             {
