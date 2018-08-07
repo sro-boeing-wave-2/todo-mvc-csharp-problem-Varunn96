@@ -12,3 +12,6 @@ D:\workspace\todo-mvc-csharp-problem-Varunn96\Google_Keep_ToDo\Google_Keep_ToDo.
 D:\workspace\todo-mvc-csharp-problem-Varunn96\Google_Keep_ToDo\Google_Keep_ToDo.Tests\obj\Debug\netcoreapp2.1\Google_Keep_ToDo.Tests.AssemblyInfoInputs.cache
 D:\workspace\todo-mvc-csharp-problem-Varunn96\Google_Keep_ToDo\Google_Keep_ToDo.Tests\obj\Debug\netcoreapp2.1\Google_Keep_ToDo.Tests.AssemblyInfo.cs
 D:\workspace\todo-mvc-csharp-problem-Varunn96\Google_Keep_ToDo\Google_Keep_ToDo.Tests\obj\Debug\netcoreapp2.1\Google_Keep_ToDo.Tests.csproj.CopyComplete
+D:\workspace\todo-mvc-csharp-problem-Varunn96\Google_Keep_ToDo\Google_Keep_ToDo.Tests\bin\Debug\netcoreapp2.1\Google_Keep_ToDo.Tests.pdb
+D:\workspace\todo-mvc-csharp-problem-Varunn96\Google_Keep_ToDo\Google_Keep_ToDo.Tests\obj\Debug\netcoreapp2.1\Google_Keep_ToDo.Tests.dll
+D:\workspace\todo-mvc-csharp-problem-Varunn96\Google_Keep_ToDo\Google_Keep_ToDo.Tests\obj\Debug\netcoreapp2.1\Google_Keep_ToDo.Tests.pdb

@@ -29,7 +29,7 @@ namespace Google_Keep_ToDo.Controllers
 
         // GET: api/ToDo/5
         [HttpGet("{id}")]
-        public async Task<IActionResult> GetMyNote([FromRoute] int id)
+        public async Task<IActionResult> GetById([FromRoute] int id)
         {
             if (!ModelState.IsValid)
             {
@@ -65,16 +65,16 @@ namespace Google_Keep_ToDo.Controllers
         }
 
         [HttpGet("pinstatus")]
-        public IActionResult GetByPinStatus([FromQuery] bool pinstatus)
+        public async Task<IActionResult> GetByPinStatus([FromQuery] bool pinstatus)
         {
-            return Ok(_context.MyNote.Include(p => p.CheckLists).Include(p => p.Labels).Where(p => p.PinStatus == pinstatus));
+            return Ok(await _context.MyNote.Include(p => p.CheckLists).Include(p => p.Labels).Where(p => p.PinStatus == pinstatus).ToListAsync());
         }
 
         [HttpGet("label")]
-        public IActionResult GetByLabel([FromQuery] string label)
+        public async Task<IActionResult> GetByLabel([FromQuery] string label)
         {
-            IEnumerable<MyNote> NonNull = _context.MyNote.Include(p => p.CheckLists).Include(p => p.Labels).Where(p => p.Labels != null);
-            return Ok(NonNull.Where(p => p.Labels.Any(q => q.LabelName == label)));
+            var NonNull = _context.MyNote.Include(p => p.CheckLists).Include(p => p.Labels).Where(p => p.Labels != null);
+            return Ok(await NonNull.Where(p => p.Labels.Any(q => q.LabelName == label)).ToListAsync());
         }
 
         // PUT: api/ToDo/5
@@ -110,7 +110,7 @@ namespace Google_Keep_ToDo.Controllers
                 }
             }
 
-            return NoContent();
+            return Ok(myNote);
         }
 
         // POST: api/ToDo
@@ -150,7 +150,7 @@ namespace Google_Keep_ToDo.Controllers
         }
 
         [HttpDelete("title")]
-        public async Task<IActionResult> DeleteMyNote([FromQuery] string title)
+        public async Task<IActionResult> DeleteByTitle([FromQuery] string title)
         {
             if (!ModelState.IsValid)
             {
