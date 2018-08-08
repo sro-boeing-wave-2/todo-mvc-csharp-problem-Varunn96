@@ -16,11 +16,12 @@ namespace Google_Keep_ToDo.Tests
     public class UnitTest1
     {
         private ToDoController _controller;
+        private readonly Google_Keep_ToDoContext dbContext;
         public UnitTest1()
         {
             var OptionsBuilder = new DbContextOptionsBuilder<Google_Keep_ToDoContext>();
             OptionsBuilder.UseInMemoryDatabase(Guid.NewGuid().ToString());
-            Google_Keep_ToDoContext dbContext = new Google_Keep_ToDoContext(OptionsBuilder.Options);
+            dbContext = new Google_Keep_ToDoContext(OptionsBuilder.Options);
             _controller = new ToDoController(dbContext);
             AddTestData(dbContext);
         }

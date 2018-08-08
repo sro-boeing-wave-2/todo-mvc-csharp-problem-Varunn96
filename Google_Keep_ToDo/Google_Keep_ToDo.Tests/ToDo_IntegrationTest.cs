@@ -53,7 +53,7 @@
 //                new MyNote()
 //                {
 //                    Id = 1,
-//                    Name = "First Note",
+//                    Name = "First",
 //                    Text = "This is the first note",
 //                    PinStatus = true,
 //                    CheckLists = new List<CheckList>()
@@ -87,7 +87,7 @@
 //                new MyNote()
 //                {
 //                    Id = 1,
-//                    Name = "First Note",
+//                    Name = "First",
 //                    Text = "This is the first note",
 //                    PinStatus = true,
 //                    CheckLists = new List<CheckList>()
@@ -113,14 +113,14 @@
 //            var ResponseForGetOne = await _client.GetAsync("/api/todo/1");
 //            ResponseForGetOne.EnsureSuccessStatusCode();
 
-//            var ResponseForGetFirst = await _client.GetAsync("/api/todo/title?title=First note");
+//            var ResponseForGetFirst = await _client.GetAsync("/api/todo/title?title=First");
 //            var result = await ResponseForGetFirst.Content.ReadAsStringAsync();
 //            Console.WriteLine(await ResponseForGetFirst.Content.ReadAsStringAsync());
 //            Console.WriteLine("JSON" + result);
 //            var JArrayN = JArray.Parse(result);
 //            var JObjectNotes = JArrayN[0];
 //            Assert.Equal("1", JObjectNotes["Id"].ToString());
-//            Assert.Equal("First note", JObjectNotes["Name"].ToString());
+//            Assert.Equal("First", JObjectNotes["Name"].ToString());
 //            Assert.Equal("This is the first note", JObjectNotes["Text"].ToString());
 //            Assert.Equal("true", JObjectNotes["PinStatus"].ToString());
 
