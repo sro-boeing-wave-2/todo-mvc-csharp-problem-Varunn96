@@ -214,6 +214,20 @@ namespace Google_Keep_ToDo.Tests
             var Response = await _client.GetAsync("/api/todo/99");
             Assert.Equal("NotFound", Response.StatusCode.ToString());
         }
+
+        [Fact]
+        public async void TestingPutMyNote()
+        {
+            var note = new MyNote()
+            {
+                Id = 2,
+                Name = "Updated"
+            };
+            var json = JsonConvert.SerializeObject(note);
+            var stringnote = new StringContent(json, UnicodeEncoding.UTF8, "application/json");
+            var Response = await _client.PutAsync("/api/todo/2", stringnote);
+            Assert.Equal("OK", Response.StatusCode.ToString());
+        }
     }
 
 }

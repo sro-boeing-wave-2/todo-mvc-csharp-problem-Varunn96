@@ -4,13 +4,13 @@ solution: Google_Keep_ToDo.sln
 
 notifications:
 
-email:
+  email:
 
-  on_success: always
+    on_success: always
 
-  on_failure: always
+    on_failure: always
 
-slack: srboeingdotnet:pZz5KfrgntyjLpS9a1d2b1rH
+  slack: srboeingdotnet:pZz5KfrgntyjLpS9a1d2b1rH
 
 mono: none
 
@@ -18,5 +18,5 @@ dotnet: 2.1
 
 script:
 
-- dotnet restore
-- dotnet test Google_Keep_ToDo.Tests/
+  - dotnet restore
+  - dotnet test Google_Keep_ToDo.Tests/
