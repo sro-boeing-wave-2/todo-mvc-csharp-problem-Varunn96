@@ -90,8 +90,21 @@ namespace Google_Keep_ToDo.Controllers
             {
                 return BadRequest();
             }
+            await _context.MyNote.Include(x => x.CheckLists).Include(x => x.Labels).ForEachAsync(x =>
+            {
+                if (x.Id == id)
+                {
+                    x.Name = myNote.Name;
+                    x.Text = myNote.Text;
+                    x.PinStatus = myNote.PinStatus;
+                    _context.CheckList.RemoveRange(x.CheckLists);
+                    _context.CheckList.AddRange(myNote.CheckLists);
+                    _context.Label.RemoveRange(x.Labels);
+                    _context.Label.AddRange(myNote.Labels);
+                }
+            });
 
-            _context.MyNote.Update(myNote);
+            //_context.MyNote.Update(myNote);
             //_context.Entry(myNote).State = EntityState.Modified;
 
             try
@@ -109,7 +122,6 @@ namespace Google_Keep_ToDo.Controllers
                     throw;
                 }
             }
-
             return Ok(myNote);
         }
 

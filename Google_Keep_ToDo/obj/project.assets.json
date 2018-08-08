@@ -12491,11 +12491,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\workspace\\todo-mvc-csharp-problem-Varunn96\\Google_Keep_ToDo\\Google_Keep_ToDo\\Google_Keep_ToDo.csproj",
+      "projectUniqueName": "D:\\workspace\\todo-mvc-csharp-problem-Varunn96\\Google_Keep_ToDo\\Google_Keep_ToDo.csproj",
       "projectName": "Google_Keep_ToDo",
-      "projectPath": "D:\\workspace\\todo-mvc-csharp-problem-Varunn96\\Google_Keep_ToDo\\Google_Keep_ToDo\\Google_Keep_ToDo.csproj",
+      "projectPath": "D:\\workspace\\todo-mvc-csharp-problem-Varunn96\\Google_Keep_ToDo\\Google_Keep_ToDo.csproj",
       "packagesPath": "C:\\Users\\Admin\\.nuget\\packages\\",
-      "outputPath": "D:\\workspace\\todo-mvc-csharp-problem-Varunn96\\Google_Keep_ToDo\\Google_Keep_ToDo\\obj\\",
+      "outputPath": "D:\\workspace\\todo-mvc-csharp-problem-Varunn96\\Google_Keep_ToDo\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"

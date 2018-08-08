@@ -10963,11 +10963,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\workspace\\todo-mvc-csharp-problem-Varunn96\\Google_Keep_ToDo\\Google_Keep_ToDo.Tests\\Google_Keep_ToDo.Tests.csproj",
+      "projectUniqueName": "D:\\workspace\\todo-mvc-csharp-problem-Varunn96\\Google_Keep_ToDo.Tests\\Google_Keep_ToDo.Tests.csproj",
       "projectName": "Google_Keep_ToDo.Tests",
-      "projectPath": "D:\\workspace\\todo-mvc-csharp-problem-Varunn96\\Google_Keep_ToDo\\Google_Keep_ToDo.Tests\\Google_Keep_ToDo.Tests.csproj",
+      "projectPath": "D:\\workspace\\todo-mvc-csharp-problem-Varunn96\\Google_Keep_ToDo.Tests\\Google_Keep_ToDo.Tests.csproj",
       "packagesPath": "C:\\Users\\Admin\\.nuget\\packages\\",
-      "outputPath": "D:\\workspace\\todo-mvc-csharp-problem-Varunn96\\Google_Keep_ToDo\\Google_Keep_ToDo.Tests\\obj\\",
+      "outputPath": "D:\\workspace\\todo-mvc-csharp-problem-Varunn96\\Google_Keep_ToDo.Tests\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
@@ -10986,8 +10986,8 @@
       "frameworks": {
         "netcoreapp2.1": {
           "projectReferences": {
-            "D:\\workspace\\todo-mvc-csharp-problem-Varunn96\\Google_Keep_ToDo\\Google_Keep_ToDo\\Google_Keep_ToDo.csproj": {
-              "projectPath": "D:\\workspace\\todo-mvc-csharp-problem-Varunn96\\Google_Keep_ToDo\\Google_Keep_ToDo\\Google_Keep_ToDo.csproj"
+            "D:\\workspace\\todo-mvc-csharp-problem-Varunn96\\Google_Keep_ToDo\\Google_Keep_ToDo.csproj": {
+              "projectPath": "D:\\workspace\\todo-mvc-csharp-problem-Varunn96\\Google_Keep_ToDo\\Google_Keep_ToDo.csproj"
             }
           }
         }
@@ -11038,7 +11038,6 @@
             "version": "[15.7.0, )"
           },
           "Microsoft.NETCore.App": {
-            "suppressParent": "All",
             "target": "Package",
             "version": "[2.1.0, )",
             "autoReferenced": true

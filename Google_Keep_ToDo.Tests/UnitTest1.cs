@@ -227,6 +227,36 @@ namespace Google_Keep_ToDo.Tests
             var notes = status.Value as MyNote;
             Assert.Equal("Posted note", notes.Name);
         }
+
+        [Fact]
+        public async Task Test_PutMyNote()
+        {
+            int id = _controller.GetMyNote().ToList()[0].Id;
+            MyNote note = new MyNote
+            {
+                Id = id,
+                Name = "Edited note",
+                Text = "This is the edited note",
+                PinStatus = true,
+                CheckLists = new List<CheckList>()
+                { new CheckList
+                    {
+                        CheckListName = "edited list 1",
+                        CheckListStatus = false
+                    }
+                },
+                Labels = new List<Label>()
+                { new Label
+                    {
+                        LabelName = "edited label name"
+                    }
+                }
+            };
+            var result = await _controller.PutMyNote(id, note);
+            var status = result as OkObjectResult;
+            var notes = status.Value as MyNote;
+            Assert.Equal("Edited note", notes.Name);
+        }
     }
 }
 

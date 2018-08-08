@@ -14,5 +14,7 @@ namespace Google_Keep_ToDo.Models
         }
 
         public DbSet<Google_Keep_ToDo.Models.MyNote> MyNote { get; set; }
+        public DbSet<Google_Keep_ToDo.Models.CheckList> CheckList { get; set; }
+        public DbSet<Google_Keep_ToDo.Models.Label> Label { get; set; }
     }
 }

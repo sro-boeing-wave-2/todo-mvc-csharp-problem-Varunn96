@@ -19,4 +19,4 @@ dotnet: 2.1
 script:
 
 - dotnet restore
-- dotnet test Google_Keep_ToDo.Tests
+- dotnet test Google_Keep_ToDo.Tests/
