@@ -1,6 +1,12 @@
 {
   "ExpandedNodes": [
-    ""
+    "",
+    "\\Google_Keep_ToDo",
+    "\\Google_Keep_ToDo.Tests",
+    "\\Google_Keep_ToDo.Tests\\bin",
+    "\\Google_Keep_ToDo.Tests\\obj\\Debug",
+    "\\Google_Keep_ToDo.Tests\\obj\\Release"
   ],
+  "SelectedNode": "\\Google_Keep_ToDo.Tests\\Google_Keep_ToDo.Tests.csproj",
   "PreviewInSolutionExplorer": false
 }
