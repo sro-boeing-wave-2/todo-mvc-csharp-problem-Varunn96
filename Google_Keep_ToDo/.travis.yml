@@ -1,6 +1,6 @@
 language: csharp
 
-solution: todo-mvc-csharp-problem-Varunn96.sln
+solution: Google_Keep_ToDo.sln
 
 notifications:
 
@@ -20,4 +20,4 @@ script:
 
 - dotnet restore
 
-- dotnet test todo-mvc-csharp-problem-Varunn96.Tests
+- dotnet test Google_Keep_ToDo.Tests

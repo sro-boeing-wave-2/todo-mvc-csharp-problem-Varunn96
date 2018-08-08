@@ -117,6 +117,7 @@
 //            var host = new TestServer(new WebHostBuilder()
 //                .UseEnvironment("Testing")
 //                .UseStartup<Startup>());
+
 //            _client = host.CreateClient();
 
 //            Google_Keep_ToDoContext _context = host.Host.Services.GetService(typeof(Google_Keep_ToDoContext)) as Google_Keep_ToDoContext;
@@ -142,8 +143,8 @@
 //        [Fact]
 //        public async Task TestGetByTitle()
 //        {
-//            var Response = await _client.GetAsync("/api/todo/title?title=null");
-//            Assert.Equal("NotFound", Response.StatusCode.ToString());
+//            var Response = await _client.GetAsync("/api/todo/title?title=First note");
+//            Assert.Equal("Ok", Response.StatusCode.ToString());
 //        }
 
 //        //    [Fact]
