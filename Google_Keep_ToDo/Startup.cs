@@ -67,7 +67,7 @@ namespace Google_Keep_ToDo
             });
 
             app.UseHttpsRedirection();
-            app.UseMvc();
+            app.UseMvc();  
         }
     }
 }

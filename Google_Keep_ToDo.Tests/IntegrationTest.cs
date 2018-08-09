@@ -18,21 +18,21 @@ namespace Google_Keep_ToDo.Tests
 {
     public class IntegrationTest
     {
-        List<MyNote> TestNotes = new List<MyNote>()
+        List<Note> TestNotes = new List<Note>()
         {
-            new MyNote()
+            new Note()
             {
                 Name = "First note",
                 Text = "This is the first note",
                 PinStatus = true,
-                CheckLists = new List<CheckList>()
+                CheckList = new List<CheckList_Item>()
                 {
-                    new CheckList()
+                    new CheckList_Item()
                     {
                         CheckListName = "1st task",
                         CheckListStatus = false
                     },
-                    new CheckList()
+                    new CheckList_Item()
                     {
                         CheckListName = "2nd task",
                         CheckListStatus = false
@@ -46,14 +46,14 @@ namespace Google_Keep_ToDo.Tests
                     }
                 }
             },
-            new MyNote()
+            new Note()
             {
                 Name = "Second note",
                 Text = "This is the second note",
                 PinStatus = false,
-                CheckLists = new List<CheckList>()
+                CheckList = new List<CheckList_Item>()
                 {
-                    new CheckList()
+                    new CheckList_Item()
                     {
                         CheckListName = "3rd task",
                         CheckListStatus = true
@@ -67,14 +67,14 @@ namespace Google_Keep_ToDo.Tests
                     }
                 }
             },
-            new MyNote()
+            new Note()
             {
                 Name = "Third note",
                 Text = "This is the third note",
                 PinStatus = false,
-                CheckLists = new List<CheckList>()
+                CheckList = new List<CheckList_Item>()
                 {
-                    new CheckList()
+                    new CheckList_Item()
                     {
                         CheckListName = "3rd task",
                         CheckListStatus = true
@@ -88,14 +88,14 @@ namespace Google_Keep_ToDo.Tests
                     }
                 }
             },
-            new MyNote()
+            new Note()
             {
                 Name = "Fourth note",
                 Text = "This is the fourth note",
                 PinStatus = false,
-                CheckLists = new List<CheckList>()
+                CheckList = new List<CheckList_Item>()
                 {
-                    new CheckList()
+                    new CheckList_Item()
                     {
                         CheckListName = "3rd task",
                         CheckListStatus = true
@@ -165,14 +165,14 @@ namespace Google_Keep_ToDo.Tests
         [Fact]
         public async Task TestPostMyNote()
         {
-            var notes = new MyNote
+            var notes = new Note
             {
                 Name = "Posted note",
                 Text = "This is the posted note",
                 PinStatus = true,
-                CheckLists = new List<CheckList>()
+                CheckList = new List<CheckList_Item>()
                     {
-                        new CheckList()
+                        new CheckList_Item()
                         {
                             CheckListName = "posted list entry",
                             CheckListStatus = true
@@ -218,7 +218,7 @@ namespace Google_Keep_ToDo.Tests
         [Fact]
         public async void TestingPutMyNote()
         {
-            var note = new MyNote()
+            var note = new Note()
             {
                 Id = 2,
                 Name = "Updated"

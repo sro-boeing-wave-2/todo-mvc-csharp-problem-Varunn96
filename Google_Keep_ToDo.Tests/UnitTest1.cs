@@ -38,22 +38,22 @@ namespace Google_Keep_ToDo.Tests
         {
             using (var dbContext = new Google_Keep_ToDoContext(options))
             {
-                List<MyNote> TestNotes = new List<MyNote>
+                List<Note> TestNotes = new List<Note>
                 {
-                    new MyNote()
+                    new Note()
                     {
                         Id = 1,
                         Name = "First note",
                         Text = "This is the first note",
                         PinStatus = true,
-                        CheckLists = new List<CheckList>()
+                        CheckList = new List<CheckList_Item>()
                         {
-                            new CheckList()
+                            new CheckList_Item()
                             {
                                 CheckListName = "1st task",
                                 CheckListStatus = false
                             },
-                            new CheckList()
+                            new CheckList_Item()
                             {
                                 CheckListName = "2nd task",
                                 CheckListStatus = false
@@ -67,15 +67,15 @@ namespace Google_Keep_ToDo.Tests
                             }
                         }
                     },
-                    new MyNote()
+                    new Note()
                     {
                         Id = 2,
                         Name = "Second note",
                         Text = "This is the second note",
                         PinStatus = false,
-                        CheckLists = new List<CheckList>()
+                        CheckList = new List<CheckList_Item>()
                         {
-                            new CheckList()
+                            new CheckList_Item()
                             {
                                 CheckListName = "3rd task",
                                 CheckListStatus = true
@@ -89,15 +89,15 @@ namespace Google_Keep_ToDo.Tests
                             }
                         }
                     },
-                    new MyNote()
+                    new Note()
                     {
                         Id = 3,
                         Name = "Third note",
                         Text = "This is the third note",
                         PinStatus = false,
-                        CheckLists = new List<CheckList>()
+                        CheckList = new List<CheckList_Item>()
                         {
-                            new CheckList()
+                            new CheckList_Item()
                             {
                                 CheckListName = "3rd task",
                                 CheckListStatus = true
@@ -111,15 +111,15 @@ namespace Google_Keep_ToDo.Tests
                             }
                         }
                     },
-                    new MyNote()
+                    new Note()
                     {
                         Id = 4,
                         Name = "Fourth note",
                         Text = "This is the fourth note",
                         PinStatus = false,
-                        CheckLists = new List<CheckList>()
+                        CheckList = new List<CheckList_Item>()
                         {
-                            new CheckList()
+                            new CheckList_Item()
                             {
                                 CheckListName = "3rd task",
                                 CheckListStatus = true
@@ -134,7 +134,7 @@ namespace Google_Keep_ToDo.Tests
                         }
                     }
                 };
-                dbContext.MyNote.AddRange(TestNotes);
+                dbContext.Notes.AddRange(TestNotes);
                 dbContext.SaveChanges();
             }
         }
@@ -156,7 +156,7 @@ namespace Google_Keep_ToDo.Tests
             //int id = _controller.GetMyNote().ToList()[0].Id;
             var result = await _controller.GetById(1);
             var status = result as OkObjectResult;
-            var note = status.Value as MyNote;
+            var note = status.Value as Note;
             Assert.Equal(1, note.Id);
         }
 
@@ -167,7 +167,7 @@ namespace Google_Keep_ToDo.Tests
             var _controller = GetController();
             var result = await _controller.GetByTitle("First note");
             var status = result as OkObjectResult;
-            var note = status.Value as MyNote;
+            var note = status.Value as Note;
             note.Name.Should().Be("First note");
         }
 
@@ -178,7 +178,7 @@ namespace Google_Keep_ToDo.Tests
             var _controller = GetController();
             var okResult = await _controller.GetByPinStatus(true);
             var status = okResult as OkObjectResult;
-            var notes = status.Value as List<MyNote>;
+            var notes = status.Value as List<Note>;
             Assert.True(notes[0].PinStatus);
         }
 
@@ -189,7 +189,7 @@ namespace Google_Keep_ToDo.Tests
             var _controller = GetController();
             var okresult = await _controller.GetByLabel("Important");
             var OkObj = okresult as OkObjectResult;
-            var Notes = OkObj.Value as List<MyNote>;
+            var Notes = OkObj.Value as List<Note>;
             Notes[0].Name.Should().Be("First note");
             Notes[0].Text.Should().Be("This is the first note");
         }
@@ -227,14 +227,14 @@ namespace Google_Keep_ToDo.Tests
         public async Task Test_PostMyNote()
         {
             var _controller = GetController();
-            MyNote note = new MyNote
+            Note note = new Note
             {
                 Id = 5,
                 Name = "Posted note",
                 Text = "This is the posted note",
                 PinStatus = true,
-                CheckLists = new List<CheckList>()
-                { new CheckList
+                CheckList = new List<CheckList_Item>()
+                { new CheckList_Item
                     {
                         CheckListName = "list 1",
                         CheckListStatus = false
@@ -249,7 +249,7 @@ namespace Google_Keep_ToDo.Tests
             };
             var result = await _controller.PostMyNote(note);
             var status = result as CreatedAtActionResult;
-            var notes = status.Value as MyNote;
+            var notes = status.Value as Note;
             Assert.Equal("Posted note", notes.Name);
         }
 
@@ -257,14 +257,14 @@ namespace Google_Keep_ToDo.Tests
         public async Task Test_PutMyNote()
         {
             var _controller = GetController();
-            MyNote note = new MyNote
+            Note note = new Note
             {
                 Id = 2,
                 Name = "Edited note",
             };
             var result = await _controller.PutMyNote(2, note);
             var status = result as OkObjectResult;
-            var notes = status.Value as MyNote;
+            var notes = status.Value as Note;
             Assert.Equal("Edited note", notes.Name);
         }
     }
