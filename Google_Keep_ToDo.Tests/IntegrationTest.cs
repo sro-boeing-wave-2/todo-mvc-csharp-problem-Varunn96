@@ -112,7 +112,7 @@ namespace Google_Keep_ToDo.Tests
         };
 
         private HttpClient _client;
-        private readonly Google_Keep_ToDoContext _context;
+        private readonly Google_Keep_Context _context;
         public IntegrationTest()
         {
             var host = new TestServer(new WebHostBuilder()
@@ -121,7 +121,7 @@ namespace Google_Keep_ToDo.Tests
 
             _client = host.CreateClient();
 
-            _context = host.Host.Services.GetService(typeof(Google_Keep_ToDoContext)) as Google_Keep_ToDoContext;
+            _context = host.Host.Services.GetService(typeof(Google_Keep_Context)) as Google_Keep_Context;
             _context.AddRange(TestNotes);
             _context.SaveChanges();
         }

@@ -31,15 +31,16 @@ namespace Google_Keep_ToDo
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
-            if(Environment.IsEnvironment("Testing"))
+
+            if (Environment.IsEnvironment("Testing"))
             {
-                services.AddDbContext<Google_Keep_ToDoContext>(options =>
+                services.AddDbContext<Google_Keep_Context>(options =>
                     options.UseInMemoryDatabase("TestingDB"));
             }
             else
             {
-                services.AddDbContext<Google_Keep_ToDoContext>(options =>
-                        options.UseSqlServer(Configuration.GetConnectionString("Google_Keep_ToDoContext")));
+                services.AddDbContext<Google_Keep_Context>(options =>
+                        options.UseSqlServer(Configuration.GetConnectionString("DockerContext")));
             }
             services.AddSwaggerGen(c =>
             {
@@ -66,8 +67,11 @@ namespace Google_Keep_ToDo
                 c.SwaggerEndpoint("/swagger/v1/swagger.json", "My API V1");
             });
 
+            //var context = app.ApplicationServices.GetService<Google_Keep_Context>();
+            //context.Database.Migrate();
+
             app.UseHttpsRedirection();
-            app.UseMvc();  
+            app.UseMvc();
         }
     }
 }

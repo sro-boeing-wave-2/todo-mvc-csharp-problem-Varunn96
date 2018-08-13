@@ -27,16 +27,16 @@ namespace Google_Keep_ToDo.Tests
 
         public ToDoController GetController()
         {
-            var optionsBuilder = new DbContextOptionsBuilder<Google_Keep_ToDoContext>();
-            optionsBuilder.UseInMemoryDatabase<Google_Keep_ToDoContext>(Guid.NewGuid().ToString());
-            var dbContext = new Google_Keep_ToDoContext(optionsBuilder.Options);
+            var optionsBuilder = new DbContextOptionsBuilder<Google_Keep_Context>();
+            optionsBuilder.UseInMemoryDatabase<Google_Keep_Context>(Guid.NewGuid().ToString());
+            var dbContext = new Google_Keep_Context(optionsBuilder.Options);
             CreateTestData(optionsBuilder.Options);
             return new ToDoController(dbContext);
         }
 
-        public void CreateTestData(DbContextOptions<Google_Keep_ToDoContext> options)
+        public void CreateTestData(DbContextOptions<Google_Keep_Context> options)
         {
-            using (var dbContext = new Google_Keep_ToDoContext(options))
+            using (var dbContext = new Google_Keep_Context(options))
             {
                 List<Note> TestNotes = new List<Note>
                 {
@@ -134,7 +134,7 @@ namespace Google_Keep_ToDo.Tests
                         }
                     }
                 };
-                dbContext.Notes.AddRange(TestNotes);
+                dbContext.Note.AddRange(TestNotes);
                 dbContext.SaveChanges();
             }
         }

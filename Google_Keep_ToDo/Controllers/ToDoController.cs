@@ -13,9 +13,9 @@ namespace Google_Keep_ToDo.Controllers
     [ApiController]
     public class ToDoController : ControllerBase
     {
-        public readonly Google_Keep_ToDoContext _context;
+        public readonly Google_Keep_Context _context;
 
-        public ToDoController(Google_Keep_ToDoContext context)
+        public ToDoController(Google_Keep_Context context)
         {
             _context = context;
         }
@@ -24,7 +24,7 @@ namespace Google_Keep_ToDo.Controllers
         [HttpGet]
         public IEnumerable<Note> GetMyNote()
         {
-            return _context.Notes.Include(p => p.CheckList).Include(p => p.Labels);
+            return _context.Note.Include(p => p.CheckList).Include(p => p.Labels);
         }
 
         // GET: api/ToDo/5
@@ -36,7 +36,7 @@ namespace Google_Keep_ToDo.Controllers
                 return BadRequest(ModelState);
             }
 
-            var myNote = await _context.Notes.Include(p => p.CheckList).Include(p => p.Labels).SingleOrDefaultAsync(p => p.Id == id);
+            var myNote = await _context.Note.Include(p => p.CheckList).Include(p => p.Labels).SingleOrDefaultAsync(p => p.Id == id);
 
             if (myNote == null)
             {
@@ -55,7 +55,7 @@ namespace Google_Keep_ToDo.Controllers
                 return BadRequest(ModelState);
             }
 
-            var myNote = await _context.Notes.Include(p => p.CheckList).Include(p => p.Labels).SingleOrDefaultAsync(s => s.Name == title);
+            var myNote = await _context.Note.Include(p => p.CheckList).Include(p => p.Labels).SingleOrDefaultAsync(s => s.Name == title);
 
             if (myNote == null)
             {
@@ -67,13 +67,13 @@ namespace Google_Keep_ToDo.Controllers
         [HttpGet("pinstatus")]
         public async Task<IActionResult> GetByPinStatus([FromQuery] bool pinstatus)
         {
-            return Ok(await _context.Notes.Include(p => p.CheckList).Include(p => p.Labels).Where(p => p.PinStatus == pinstatus).ToListAsync());
+            return Ok(await _context.Note.Include(p => p.CheckList).Include(p => p.Labels).Where(p => p.PinStatus == pinstatus).ToListAsync());
         }
 
         [HttpGet("label")]
         public async Task<IActionResult> GetByLabel([FromQuery] string label)
         {
-            var NonNull = _context.Notes.Include(p => p.CheckList).Include(p => p.Labels).Where(p => p.Labels != null);
+            var NonNull = _context.Note.Include(p => p.CheckList).Include(p => p.Labels).Where(p => p.Labels != null);
             return Ok(await NonNull.Where(p => p.Labels.Any(q => q.LabelName == label)).ToListAsync());
         }
 
@@ -91,7 +91,7 @@ namespace Google_Keep_ToDo.Controllers
                 return BadRequest();
             }
 
-            _context.Notes.Update(myNote);
+            _context.Note.Update(myNote);
 
             try
             {
@@ -120,7 +120,7 @@ namespace Google_Keep_ToDo.Controllers
                 return BadRequest(ModelState);
             }
 
-            _context.Notes.Add(myNote);
+            _context.Note.Add(myNote);
             await _context.SaveChangesAsync();
 
             return CreatedAtAction("GetMyNote", new { id = myNote.Id }, myNote);
@@ -135,13 +135,13 @@ namespace Google_Keep_ToDo.Controllers
                 return BadRequest(ModelState);
             }
 
-            var myNote = await _context.Notes.Include(p => p.CheckList).Include(p => p.Labels).SingleOrDefaultAsync(p => p.Id == id);
+            var myNote = await _context.Note.Include(p => p.CheckList).Include(p => p.Labels).SingleOrDefaultAsync(p => p.Id == id);
             if (myNote == null)
             {
                 return NotFound();
             }
 
-            _context.Notes.Remove(myNote);
+            _context.Note.Remove(myNote);
             await _context.SaveChangesAsync();
 
             return Ok(myNote);
@@ -155,13 +155,13 @@ namespace Google_Keep_ToDo.Controllers
                 return BadRequest(ModelState);
             }
 
-            var myNote = await _context.Notes.Include(p => p.CheckList).Include(p => p.Labels).SingleOrDefaultAsync(p => p.Name == title);
+            var myNote = await _context.Note.Include(p => p.CheckList).Include(p => p.Labels).SingleOrDefaultAsync(p => p.Name == title);
             if (myNote == null)
             {
                 return NotFound();
             }
 
-            _context.Notes.Remove(myNote);
+            _context.Note.Remove(myNote);
             await _context.SaveChangesAsync();
 
             return Ok(myNote);
@@ -170,9 +170,9 @@ namespace Google_Keep_ToDo.Controllers
         [HttpDelete("label")]
         public async Task<IActionResult> DeleteByLabel([FromQuery] string label)
         {
-            var NonNull = _context.Notes.Include(p => p.CheckList).Include(p => p.Labels).Where(p => p.Labels != null);
+            var NonNull = _context.Note.Include(p => p.CheckList).Include(p => p.Labels).Where(p => p.Labels != null);
             var deletenote = NonNull.Where(p => p.Labels.Any(q => q.LabelName == label));
-            _context.Notes.RemoveRange(deletenote);
+            _context.Note.RemoveRange(deletenote);
 
             await _context.SaveChangesAsync();
 
@@ -182,7 +182,7 @@ namespace Google_Keep_ToDo.Controllers
 
         private bool MyNoteExists(int id)
         {
-            return _context.Notes.Any(e => e.Id == id);
+            return _context.Note.Any(e => e.Id == id);
         }
     }
 }

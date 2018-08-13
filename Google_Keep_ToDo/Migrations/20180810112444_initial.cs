@@ -8,7 +8,7 @@ namespace Google_Keep_ToDo.Migrations
         protected override void Up(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.CreateTable(
-                name: "MyNote",
+                name: "Note",
                 columns: table => new
                 {
                     Id = table.Column<int>(nullable: false)
@@ -19,26 +19,26 @@ namespace Google_Keep_ToDo.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_MyNote", x => x.Id);
+                    table.PrimaryKey("PK_Note", x => x.Id);
                 });
 
             migrationBuilder.CreateTable(
-                name: "CheckList",
+                name: "CheckList_Item",
                 columns: table => new
                 {
                     Id = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
                     CheckListName = table.Column<string>(nullable: true),
                     CheckListStatus = table.Column<bool>(nullable: false),
-                    MyNoteId = table.Column<int>(nullable: true)
+                    NoteId = table.Column<int>(nullable: true)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_CheckList", x => x.Id);
+                    table.PrimaryKey("PK_CheckList_Item", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_CheckList_MyNote_MyNoteId",
-                        column: x => x.MyNoteId,
-                        principalTable: "MyNote",
+                        name: "FK_CheckList_Item_Note_NoteId",
+                        column: x => x.NoteId,
+                        principalTable: "Note",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Restrict);
                 });
@@ -50,40 +50,40 @@ namespace Google_Keep_ToDo.Migrations
                     Id = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
                     LabelName = table.Column<string>(nullable: true),
-                    MyNoteId = table.Column<int>(nullable: true)
+                    NoteId = table.Column<int>(nullable: true)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Label", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_Label_MyNote_MyNoteId",
-                        column: x => x.MyNoteId,
-                        principalTable: "MyNote",
+                        name: "FK_Label_Note_NoteId",
+                        column: x => x.NoteId,
+                        principalTable: "Note",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Restrict);
                 });
 
             migrationBuilder.CreateIndex(
-                name: "IX_CheckList_MyNoteId",
-                table: "CheckList",
-                column: "MyNoteId");
+                name: "IX_CheckList_Item_NoteId",
+                table: "CheckList_Item",
+                column: "NoteId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_Label_MyNoteId",
+                name: "IX_Label_NoteId",
                 table: "Label",
-                column: "MyNoteId");
+                column: "NoteId");
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropTable(
-                name: "CheckList");
+                name: "CheckList_Item");
 
             migrationBuilder.DropTable(
                 name: "Label");
 
             migrationBuilder.DropTable(
-                name: "MyNote");
+                name: "Note");
         }
     }
 }

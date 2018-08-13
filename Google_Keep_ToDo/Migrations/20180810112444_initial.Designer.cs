@@ -4,14 +4,16 @@ using Google_Keep_ToDo.Models;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace Google_Keep_ToDo.Migrations
 {
-    [DbContext(typeof(Google_Keep_ToDoContext))]
-    partial class Google_Keep_ToDoContextModelSnapshot : ModelSnapshot
+    [DbContext(typeof(Google_Keep_Context))]
+    [Migration("20180810112444_initial")]
+    partial class initial
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -19,7 +21,7 @@ namespace Google_Keep_ToDo.Migrations
                 .HasAnnotation("Relational:MaxIdentifierLength", 128)
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-            modelBuilder.Entity("Google_Keep_ToDo.Models.CheckList", b =>
+            modelBuilder.Entity("Google_Keep_ToDo.Models.CheckList_Item", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -29,13 +31,13 @@ namespace Google_Keep_ToDo.Migrations
 
                     b.Property<bool>("CheckListStatus");
 
-                    b.Property<int?>("MyNoteId");
+                    b.Property<int?>("NoteId");
 
                     b.HasKey("Id");
 
-                    b.HasIndex("MyNoteId");
+                    b.HasIndex("NoteId");
 
-                    b.ToTable("CheckList");
+                    b.ToTable("CheckList_Item");
                 });
 
             modelBuilder.Entity("Google_Keep_ToDo.Models.Label", b =>
@@ -46,16 +48,16 @@ namespace Google_Keep_ToDo.Migrations
 
                     b.Property<string>("LabelName");
 
-                    b.Property<int?>("MyNoteId");
+                    b.Property<int?>("NoteId");
 
                     b.HasKey("Id");
 
-                    b.HasIndex("MyNoteId");
+                    b.HasIndex("NoteId");
 
                     b.ToTable("Label");
                 });
 
-            modelBuilder.Entity("Google_Keep_ToDo.Models.MyNote", b =>
+            modelBuilder.Entity("Google_Keep_ToDo.Models.Note", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -69,21 +71,21 @@ namespace Google_Keep_ToDo.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("MyNote");
+                    b.ToTable("Note");
                 });
 
-            modelBuilder.Entity("Google_Keep_ToDo.Models.CheckList", b =>
+            modelBuilder.Entity("Google_Keep_ToDo.Models.CheckList_Item", b =>
                 {
-                    b.HasOne("Google_Keep_ToDo.Models.MyNote")
-                        .WithMany("CheckLists")
-                        .HasForeignKey("MyNoteId");
+                    b.HasOne("Google_Keep_ToDo.Models.Note")
+                        .WithMany("CheckList")
+                        .HasForeignKey("NoteId");
                 });
 
             modelBuilder.Entity("Google_Keep_ToDo.Models.Label", b =>
                 {
-                    b.HasOne("Google_Keep_ToDo.Models.MyNote")
+                    b.HasOne("Google_Keep_ToDo.Models.Note")
                         .WithMany("Labels")
-                        .HasForeignKey("MyNoteId");
+                        .HasForeignKey("NoteId");
                 });
 #pragma warning restore 612, 618
         }
